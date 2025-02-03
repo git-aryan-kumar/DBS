@@ -1,0 +1,114 @@
+db.createCollection("rest");
+
+db.rest.insert({
+  "name":"Chilis",
+  "address":{
+    "building":"57",
+    "street":"15th Cross",
+    "area":"Malleswaram",
+    "pincode":"560055"
+  },
+  "id":"001",
+  "cuisine":"Mexican",
+  "nearby":["Orion Mall","Brigade"],
+  "online":"yes",
+  "famousfor":"Burrito"
+});
+
+db.rest.insert({
+  "name":"Rameswaram Cafe",
+  "address":{
+    "building":"50",
+    "street":"Rajkumar Road",
+    "area":"Rajajinagar",
+    "pincode":"560055"
+  },
+  "id":"002",
+  "cuisine":"South Indian",
+  "nearby":["Orion Mall","World Trade Center"],
+  "online":"yes",
+  "famousfor":"Dosa"
+});
+
+db.rest.insert({
+  "name":"Nagarjuna",
+  "address":{
+    "building":"10",
+    "street":"Spencer Road",
+    "area":"CBD",
+    "pincode":"560001"
+  },
+  "id":"003",
+  "cuisine":"South Indian",
+  "nearby":["Corner House","Brigade Road"],
+  "online":"no",
+  "famousfor":"Biryani"
+});
+
+db.rest.insert({
+  "name":"Corner House",
+  "address":{
+    "building":"52",
+    "street":"Race Course Road",
+    "area":"Sheshadripuram",
+    "pincode":"560003"
+  },
+  "id":"004",
+  "cuisine":"Swiss",
+  "nearby":["Sheshadripuram","Race Course"],
+  "online":"yes",
+  "famousfor":"DBC"
+});
+
+db.rest.insert({
+  "name":"Punjab Grill",
+  "address":{
+    "building":"40",
+    "street":"15th Cross",
+    "area":"Malleswaram",
+    "pincode":"560055"
+  },
+  "id":"005",
+  "cuisine":"North Indian",
+  "nearby":["Orion Mall","Brigade"],
+  "online":"yes",
+  "famousfor":"Butter Chicken"
+});
+
+db.rest.insert({
+  "name":"Empire",
+  "address":{
+    "building":"30",
+    "street":"MG Road",
+    "area":"Shivajinagar",
+    "pincode":"560002"
+  },
+  "id":"006",
+  "cuisine":"North Indian",
+  "nearby":["Chinnaswamy Stadium","Kanteerva Stadium"],
+  "online":"yes",
+  "famousfor":"Shwarama"
+});
+
+db.rest.insert({
+  "name":"CTR",
+  "address":{
+    "building":"20",
+    "street":"7th Cross",
+    "area":"Malleswaram",
+    "pincode":"560003"
+  },
+  "id":"007",
+  "cuisine":"South Indian",
+  "nearby":["Ground","Brigade"],
+  "online":"yes",
+  "famousfor":"Idly"
+});
+
+db.rest.find({"address.area":"Malleswaram","cuisine":"Mexican"},{"name":1,"address":1,"_id":0}).pretty();
+
+db.rest.find({"famousfor":"Butter Chicken"},{"_id":0,"name":1,"address":1,"nearby":1}).pretty();
+
+db.rest.find({},{"famousfor":1,"name":1,"address":1,"_id":0});
+
+db.rest.find({"online":"yes"},{"famousfor":1,"_id":0}).pretty();
